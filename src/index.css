@@ -1,0 +1,154 @@
+
+@tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 84% 4.9%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 84% 4.9%;
+      --primary: 346.8 77.2% 49.8%; /* Hot Pink/Red */
+      --primary-foreground: 355.7 100% 97.3%;
+      --secondary: 43.2 95.5% 53.1%; /* Bright Yellow/Orange */
+      --secondary-foreground: 46 92.9% 95.5%;
+      --muted: 210 40% 96.1%;
+      --muted-foreground: 215.4 16.3% 46.9%;
+      --accent: 210 40% 96.1%; /* Lighter Accent */
+      --accent-foreground: 222.2 47.4% 11.2%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+      --ring: 346.8 77.2% 49.8%;
+      --radius: 0.75rem;
+    }
+
+    .dark {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 346.8 77.2% 49.8%;
+      --primary-foreground: 355.7 100% 97.3%;
+      --secondary: 43.2 95.5% 53.1%;
+      --secondary-foreground: 46 92.9% 95.5%;
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 346.8 77.2% 49.8%;
+    }
+
+    body {
+      @apply bg-background text-foreground;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--background) / 0.5);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--primary) / 0.7);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--primary));
+    }
+
+    @media print {
+      body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 10pt;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-hidden {
+        display: none !important;
+      }
+      .print-visible {
+        display: block !important;
+      }
+      .print-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .print-table th, .print-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      .print-table th {
+        background-color: #f0f0f0;
+      }
+      .print-card {
+        page-break-inside: avoid;
+        border: 1px solid #eee !important;
+        box-shadow: none !important;
+        background-color: white !important;
+        margin-bottom: 10px;
+      }
+      .print-card-header {
+        background-color: #f9f9f9 !important;
+      }
+       .print-card-title, .print-card-description, .print-card-content p, .print-card-content span {
+        color: black !important;
+      }
+      a[href^="tel:"]::after {
+        content: "" !important; /* Hide phone icon for print */
+      }
+      .no-print-buttons button, .no-print-buttons a {
+        display: none !important;
+      }
+      /* Ensure icons and text are black for printing */
+      .print-black-text * {
+        color: black !important;
+      }
+    }
+
+    /* Additional Desktop specific improvements */
+    @media (min-width: 1024px) { /* lg breakpoint */
+      /* Example: Larger base font size for desktop */
+      /* body {
+        font-size: 17px; 
+      } */
+
+      /* Make header elements slightly larger on desktop */
+      header h1 {
+        font-size: 3.5rem; /* Adjust as needed */
+      }
+      header p {
+        font-size: 1.35rem; /* Adjust as needed */
+      }
+      
+      /* Increase gap for cards on larger screens */
+      .lg\:grid-cols-3 {
+        gap: 1.75rem; /* default is 1.5rem (gap-6) */
+      }
+      .xl\:grid-cols-4 {
+        gap: 1.75rem; /* default is 1.5rem (gap-6) */
+      }
+
+       /* Max width for app container on very large screens */
+      .max-w-6xl { 
+        max-width: 1280px; /* Tailwind's 7xl is 1280px, 6xl is 1152px */
+      }
+    }
